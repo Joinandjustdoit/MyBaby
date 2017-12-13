@@ -1,4 +1,4 @@
-package com.example.mybaby.entity;
+package com.example.mybaby.http.params;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package com.example.mybaby.entity;
+package com.example.mybaby.http.params;
 
 
 public class LoginRequestParams extends BaseRequestParams {

@@ -7,6 +7,8 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 
+import com.example.mybaby.MyApplication;
+
 import java.util.List;
 import java.util.UUID;
 
@@ -18,6 +20,10 @@ public class AppUtil {
         /* cannot be instantiated */
         throw new UnsupportedOperationException("cannot be instantiated");
 
+    }
+
+    public static Context getContext() {
+        return MyApplication.getContext();
     }
 
     /**

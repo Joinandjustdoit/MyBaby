@@ -21,13 +21,55 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TestLoginActivity">
+
+        <activity android:name=".view.TestLoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
 
+        <activity
+            android:name=".view.MainActivity">
+            <intent-filter>
+                <!-- 协议部分 -->
+                <data
+                    android:scheme="http"
+                    android:host="www.baidu.com" />
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <action android:name="android.intent.action.VIEW"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".view.MainActivity1">
+            <intent-filter>
+                <!-- 协议部分 -->
+                <data
+                    android:scheme="https"
+                    android:host="note.youdao.com"
+                    android:path="/web/"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <action android:name="android.intent.action.VIEW"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".view.MainActivity2">
+            <intent-filter>
+                <!-- 协议部分 -->
+                <data
+                    android:scheme="https"
+                    android:host="note.youdao.com"
+                    android:path="/web/"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <action android:name="android.intent.action.VIEW"/>
+            </intent-filter>
+        </activity>
+
+    </application>
 </manifest>

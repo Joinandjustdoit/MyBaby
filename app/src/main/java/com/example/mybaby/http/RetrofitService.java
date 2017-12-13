@@ -10,8 +10,13 @@ import retrofit2.http.POST;
  * Created by liu on 2017/12/5.
  */
 
-public interface RequestService {
+public interface RetrofitService {
 
+    /**
+     * POST 请求
+     * @param requestBody
+     * @return
+     */
     @POST("weilaifenqi-api/rpcindex.do")
     Call<ResponseBody> post(@Body RequestBody requestBody);
 }
