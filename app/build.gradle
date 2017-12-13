@@ -1,36 +1,54 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
     defaultConfig {
         applicationId "com.example.mybaby"
-        minSdkVersion 14
-        targetSdkVersion 22
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
-        release {
+        debug {
             minifyEnabled false
+            // Uses new built-in shrinker http://tools.android.com/tech-docs/new-build-system/built-in-shrinker
+            useProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguardTest-rules.pro'
+        }
+
+        release {
+            // 混淆
+            minifyEnabled true
+            // Zipalign优化
+            zipAlignEnabled true
+            // 移除无用的resource文件
+            shrinkResources true
+            useProguard true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguardTest-rules.pro'
         }
     }
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
 
-    implementation 'com.android.support:appcompat-v7:25.4.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    implementation 'com.google.code.gson:gson:2.2.4'
-    compile "io.reactivex:rxjava:$rootProject.rxjavaVersion"
-    compile "io.reactivex:rxandroid:$rootProject.rxandroidVersion"
-    compile 'com.squareup.retrofit2:retrofit:2.2.0'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.6.0'
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjavaVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroidVersion"
+    implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.loggingInterceptorVersion"
 
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    testImplementation "junit:junit:$rootProject.ext.junitVersion"
+    androidTestImplementation "com.android.support.test:runner:$rootProject.ext.runnerVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
 
 }

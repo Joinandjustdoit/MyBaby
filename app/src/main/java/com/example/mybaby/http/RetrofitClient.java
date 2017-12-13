@@ -11,17 +11,17 @@ import retrofit2.Retrofit;
 
 public class RetrofitClient {
 
-    private int TIMEOUT_READ_WRITE = 20;
-    private int TIMEOUT_CONNECT = 10;
+    private static int TIMEOUT_READ_WRITE = 20;
+    private static int TIMEOUT_CONNECT = 10;
 
-    private HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor()
+    private static HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor()
             .setLevel(HttpLoggingInterceptor.Level.BODY);
 
     private static String BASE_URL = "http://192.168.3.148:8080/";
-    private RetrofitService service;
+    private static RetrofitService service;
 
 
-    private OkHttpClient okHttpClient = new OkHttpClient.Builder()
+    private static OkHttpClient okHttpClient = new OkHttpClient.Builder()
             .addInterceptor(interceptor)                            // 打印日志
             .connectTimeout(TIMEOUT_CONNECT, TimeUnit.SECONDS)      // 超时
             .readTimeout(TIMEOUT_READ_WRITE, TimeUnit.SECONDS)
@@ -30,7 +30,7 @@ public class RetrofitClient {
             .build();
 
 
-    public RetrofitService getService() {
+    public static RetrofitService getService() {
         if (service == null) {
             return new Retrofit.Builder()
                     .baseUrl(BASE_URL)
