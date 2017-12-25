@@ -1,25 +1,18 @@
 package com.example.mybaby.view;
 
 
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-
 import com.example.mybaby.R;
-import com.example.mybaby.entity.BaseEntity;
 import com.example.mybaby.http.HttpHelper;
 import com.example.mybaby.http.params.LoginRequestParams;
 import com.example.mybaby.utils.DeviceInfoUtil;
-import com.google.gson.Gson;
 
 import java.util.List;
+
+import io.reactivex.Flowable;
+import io.reactivex.functions.Function;
 
 
 /**
@@ -44,7 +37,13 @@ public class TestLoginActivity extends AppCompatActivity {
         params.setSystem(DeviceInfoUtil.getInstance().getSystem());
         params.setTelephone("18401238692");
         params.setTimestamp(System.currentTimeMillis());
-        HttpHelper.getResponse(params, "userAccountService.login");
+        HttpHelper.getResponse(params, "userAccountService.login")
+                .to(new Function<Flowable<String>, List<LoginRequestParams>>() {
+            @Override
+            public List<LoginRequestParams> apply(Flowable<String> stringFlowable) throws Exception {
+                return null;
+            }
+        });
 
 
 

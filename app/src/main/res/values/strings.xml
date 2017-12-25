@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">MyBaby</string>
+    <string name="app_name">现金贷</string>
+    <string name="app_name1">MyBaby</string>
+    <string name="app_name2">MyBaby</string>
+    <string name="app_name3">MyBaby</string>
+    <string name="app_name4">MyBaby</string>
+    <string name="app_name5">MyBaby</string>
 </resources>

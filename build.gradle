@@ -41,7 +41,7 @@ ext {
     rxjavaVersion = '2.0.6'
     rxandroidVersion = '2.0.1'
     retrofitVersion = '2.2.0'
-    gsonVersion = '2.2.4'
+    gsonVersion = '2.8.2'
     loggingInterceptorVersion= '3.6.0'
 
     junitVersion = '4.12'

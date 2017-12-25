@@ -40,7 +40,7 @@ public class HttpHelper {
                 final String afterencrypt = Base64.encodeToString(encryptByte, Base64.DEFAULT);
 
                 // 发请求
-                Response<ResponseBody> response = RetrofitClient.getService()
+                Response<ResponseBody> response = RetrofitClient.createApi()
                         .post(RequestBody.create(MediaType.parse("application/json;charset=UTF-8"), afterencrypt))
                         .execute();
 
@@ -80,10 +80,20 @@ public class HttpHelper {
     }
 
 
+    /**
+     * 异常
+     * @param message
+     * @throws NetworkErrorException
+     */
     private static void throwException(String message) throws NetworkErrorException {
         throw new NetworkErrorException(message);
     }
 
+    /**
+     * 日志
+     * @param tag
+     * @param s
+     */
     private static void log(String tag, String s) {
         if (BuildConfig.DEBUG) {
             Log.d(TAG.concat(tag), s);

@@ -22,7 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".view.TestLoginActivity">
+        <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,7 +31,7 @@
         </activity>
 
         <activity
-            android:name=".view.MainActivity">
+            android:name=".view.TestLoginActivity">
             <intent-filter>
                 <!-- 协议部分 -->
                 <data

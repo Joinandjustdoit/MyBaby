@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public class RequestParams {
 
     /**
-     * 返回字符串类型的请求参数
+     * 返回json字符串类型的请求参数
      * @param params
      * @param method
      * @return

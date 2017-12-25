@@ -18,7 +18,6 @@ public class RetrofitClient {
             .setLevel(HttpLoggingInterceptor.Level.BODY);
 
     private static String BASE_URL = "http://192.168.3.148:8080/";
-    private static RetrofitService service;
 
 
     private static OkHttpClient okHttpClient = new OkHttpClient.Builder()
@@ -30,15 +29,22 @@ public class RetrofitClient {
             .build();
 
 
-    public static RetrofitService getService() {
-        if (service == null) {
-            return new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
-                    .client(okHttpClient)
-                    .build()
-                    .create(RetrofitService.class);
-        } else {
-            return service;
-        }
+    public static RetrofitService createApi() {
+        return new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .client(okHttpClient)
+                .build()
+                .create(RetrofitService.class);
     }
+
+//    public static RetrofitService createApi(Class<T> clazz) {
+//         Retrofit retrofit = new Retrofit.Builder()
+//                 .baseUrl(BASE_URL)
+//                 .client(okHttpClient)
+//                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+//                 .addConverterFactory(GsonConverterFactory.create())
+//                 .build();
+//        return retrofit.create(clazz);
+//    }
+
 }

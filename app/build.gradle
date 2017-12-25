@@ -13,6 +13,10 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
+    dataBinding {
+        enabled = true
+    }
+
     buildTypes {
         debug {
             minifyEnabled false
@@ -39,9 +43,12 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:design:$rootProject.supportLibraryVersion"
     implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
 
     implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+//    implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofitVersion"
+//    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
     implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjavaVersion"
     implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroidVersion"
     implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
